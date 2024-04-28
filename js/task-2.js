@@ -28,7 +28,15 @@ const images = [
 const galleryList = document.querySelector(".gallery");
 
 function createMarkup(arr) {
-  return arr.map((item) => '
-    <li></li>
-  ')
+  return arr
+    .map(
+      (item) => `
+    <li class="image-card" id="${item.id}" >
+    <img src="${item.url}" alt="${item.alt}" class="nature-image">
+    </li>
+  `
+    )
+    .join("");
 }
+
+galleryList.insertAdjacentHTML("beforeend", createMarkup(images));
